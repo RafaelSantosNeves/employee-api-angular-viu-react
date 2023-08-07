@@ -1,0 +1,49 @@
+{
+  "name": "api-alimenta-angular-react-view",
+  "version": "1.0.0",
+  "description": "Aplicação CRUD API em Node.js que alimentará os 4 pricipais frameworks do mercado",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon",
+    "lint": "eslint --ext .js -f ./node_modules/eslint-friendly-formatter . --fix",
+    "prepush": "npm run lint",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafaelSantosNeves/employee-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "api",
+    "crud",
+    "azure-functions",
+    "express",
+    "github-actions",
+    "swa",
+    "serverless",
+    "azure",
+    "postgresql",
+    "sql",
+    "javascript"
+  ],
+  "author": "Rafael Santos Neves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RafaelSantosNeves/employee-api/issues"
+  },
+  "homepage": "https://github.com/RafaelSantosNeves/employee-api#readme",
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "husky": "^8.0.3",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "express": "^4.18.2",
+    "express-promise-router": "^4.1.1",
+    "pg": "^8.11.2"
+  }
+}
