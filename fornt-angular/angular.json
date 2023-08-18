@@ -25,7 +25,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/sweetalert2/dist/sweetalert2.css"
             ],
             "scripts": []
           },
@@ -36,7 +38,7 @@
                   "type": "initial",
                   "maximumWarning": "500kb",
                   "maximumError": "1mb"
-                },
+                },     
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
