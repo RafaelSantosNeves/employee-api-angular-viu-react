@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-employee-add',
   templateUrl: './employee-add.component.html',
-  styleUrls: ['./employee-add.component.css']
+  styleUrls: ['./employee-add.component.css'],
 })
 
 export class EmployeeAddComponent{
