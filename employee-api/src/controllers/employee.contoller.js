@@ -7,7 +7,7 @@ const db = require('../config/database.js');
 
 // ==> Método responsável por criar um novo 'Employee'
 exports.createEmployee = async(req, res) => {
-  const { name, job_role, salary, birth, employee_registration } = req.body;
+  const { employeeName: name, jobRole: job_role, salary: salary, birth: birth, employeeRegistration: employee_registration } = req.body;
   // eslint-disable-next-line no-unused-vars
   const { rows } = await db.query(
     "INSERT INTO employee (name, job_role, salary, birth, employee_registration) VALUES($1, $2, $3, $4, $5);",
@@ -38,7 +38,7 @@ exports.findEmployeeById = async(req, res) =>{
 // ==> Método responsável por atualizar determinado 'Employee' por id
 exports.updateEmployeeById = async(req, res) =>{
   const employeeId = req.params.id
-  const { name, job_role,  salary, birth, employee_registration } = req.body
+  const { employeeName: name, jobRole: job_role, salary: salary, birth: birth, employeeRegistration: employee_registration } = req.body
   // eslint-disable-next-line no-unused-vars
   const response = await db.query(
     "UPDATE employee SET name = $1, job_role = $2, salary = $3, birth = $4, employee_registration = $5 WHERE employee_id = $6;",

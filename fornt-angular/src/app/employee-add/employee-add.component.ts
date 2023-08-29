@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-add',
@@ -9,14 +10,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export class EmployeeAddComponent{
 
-  employeeFrom!: FormGroup;
+  employeeForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder, private employeeService: EmployeeService){
     this.createForm();
   }
 
   createForm(){
-    this.employeeFrom = this.formBuilder.group({
+    this.employeeForm = this.formBuilder.group({
       // n aceita campos vazios
       employeeName: ['', Validators.required], 
       jobRole: ['', Validators.required], 
@@ -26,5 +27,7 @@ export class EmployeeAddComponent{
     })
   }
 
-
+  createNewEmployee(employeeName: string, jobRole: string, salary: any, birth: any, employeeRegistration: any){
+    this.employeeService.createNewEmployee(employeeName, jobRole, salary, birth, employeeRegistration)
+  }
 }

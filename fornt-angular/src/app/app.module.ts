@@ -2,6 +2,8 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/br'
@@ -24,7 +26,9 @@ registerLocaleData(ptBr       );
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [ 
     {
