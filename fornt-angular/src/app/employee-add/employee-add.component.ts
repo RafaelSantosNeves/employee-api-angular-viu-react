@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EmployeeService } from '../employee.service';
+import Swal from 'sweetalert2';
+import Employee from '../Employee';
 
 @Component({
   selector: 'app-employee-add',
@@ -27,7 +29,17 @@ export class EmployeeAddComponent{
     })
   }
 
+  /* Ação botao para adicionar novo employee */
   createNewEmployee(employeeName: string, jobRole: string, salary: any, birth: any, employeeRegistration: any){
     this.employeeService.createNewEmployee(employeeName, jobRole, salary, birth, employeeRegistration)
+
+    Swal.fire({
+      title: 'Employee added Successfully',
+      showConfirmButton: true,
+      timer: 1500,
+      icon: 'success'
+    })
+
+    this.employeeForm.reset();
   }
 }

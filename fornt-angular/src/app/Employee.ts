@@ -5,9 +5,9 @@ descrição: arquivo responsável por representar a classe 'Employee' dentro do 
 
 
 export default class Employee{
-    employeeName!: string; 
-    jobRole!: string; 
+    name!: string; 
+    job_role!: string; 
     salary!: number; 
     birth!: Date; 
-    employeeRegistration!: number;    
+    employee_registration!: number;    
 }
