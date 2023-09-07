@@ -32,7 +32,7 @@ export class EmployeeAddComponent{
   /* Ação botao para adicionar novo employee */
   createNewEmployee(employeeName: string, jobRole: string, salary: any, birth: any, employeeRegistration: any){
     this.employeeService.createNewEmployee(employeeName, jobRole, salary, birth, employeeRegistration)
-
+ 
     Swal.fire({
       title: 'Employee added Successfully',
       showConfirmButton: true,

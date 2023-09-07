@@ -18,8 +18,7 @@
             <td align="center">{{employee.birth}}</td>
             <td align="center">{{employee.employee_registration}}</td>
             <td align="center">
-                <a [routerLink]="['/employees', employees]" class="btn btn-success">
-
+                <a [routerLink]="['/employee/', employee.employee_id]" class="btn btn-success">
                     Edit
                 </a>
             </td>

@@ -17,6 +17,7 @@ export class EmployeeGetComponent implements OnInit {
     this.employeeService.getEmployees().subscribe(
       (data: Employee[]) => {
         this.employees = data;
+        console.log(this.employees)
       },
 /*       (error) => {
         console.error('Erro ao buscar funcionários:', error);

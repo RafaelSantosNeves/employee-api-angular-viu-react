@@ -1,1 +1,116 @@
-<p>employee-edit works!</p>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="employeeForm" novalidate>
+            <!-- INÍCIO BLOCO: Employee Name-->
+            <div class="form-group">
+                <label for="employee Name" class="font-weight-bold">Employee Name</label>
+
+                <input type="text" class="form-control" [ngClass]="{'mb-3': !employeeForm.controls['employeeName'].invalid, 
+                    'mb-2': employeeForm.controls['name'].invalid}" placeholder="Type your Name"
+                    formControlName="name" #name />
+
+                <div *ngIf="employeeForm.controls['name'].invalid
+                    && (employeeForm.controls['name'].dirty
+                    || employeeForm.controls['name'].touched)" class="alert alert-danger mt-2  p-1 "
+                    role="alert">
+                    <div *ngIf="employeeForm.controls['name'].errors">
+                        The field 'Employee Name' is required
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM BLOCO: Employee Name -->
+
+            <!-- INÍCIO BLOCO: Job Role<-->
+            <div class="form-group">
+                <label for="job-role" class="font-weight-bold">Job Role</label>
+
+                <input type="text" class="form-control" [ngClass]="{'mb-3': !employeeForm.controls['job_role'].invalid, 
+                    'mb-2': employeeForm.controls['job_role'].invalid}" placeholder="Type your Job Role"
+                    formControlName="job_role" #job_role />
+
+                <div *ngIf="employeeForm.controls['job_role'].invalid
+                    && (employeeForm.controls['job_role'].dirty
+                    || employeeForm.controls['job_role'].touched)" class="alert alert-danger mt-2  p-1" role="alert">
+                    <div *ngIf="employeeForm.controls['job_role'].errors">
+                        The field 'Job Role' is required
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM BLOCO: Job Role -->
+
+            <!-- INÍCIO BLOCO: Salary<-->
+            <div class="form-group">
+                <label for="salary" class="font-weight-bold">Salary</label>
+
+                <input type="number" class="form-control" [ngClass]="{'mb-3': !employeeForm.controls['salary'].invalid, 
+                    'mb-2': employeeForm.controls['salary'].invalid}" placeholder="Type your salary"
+                    formControlName="salary" #salary />
+
+                <div *ngIf="employeeForm.controls['salary'].invalid
+                    && (employeeForm.controls['salary'].dirty
+                    || employeeForm.controls['salary'].touched)" class="alert alert-danger mt-2  p-1" role="alert">
+                    <div *ngIf="employeeForm.controls['salary'].errors">
+                        The field 'Salary' is required
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM BLOCO: Salary -->
+
+            <!-- INÍCIO BLOCO: birth<-->
+            <div class="form-group">
+                <label for="birth" class="">birth</label>
+                <input type="date" class="form-control" [ngClass]="{'mb-3': !employeeForm.controls['birth'].invalid, 
+                    'mb-2': employeeForm.controls['salary'].invalid}" placeholder="NN/DD/YYYY" formControlName="birth"
+                    #birth />
+                <div *ngIf="employeeForm.controls['birth'].invalid
+                    && (employeeForm.controls['birth'].dirty
+                    || employeeForm.controls['birth'].touched)" class="alert alert-danger mt-2  p-1 " role="alert">
+                    <div *ngIf="employeeForm.controls['birth'].errors">
+                        The field 'birth' is required
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM BLOCO: birth -->
+
+            <!-- INÍCIO BLOCO: Employee Registration<-->
+            <div class="form-group">
+                <label for="employee-registration" class="">Employee Registration</label>
+                <input type="text" class="form-control" 
+                    [ngClass]="{'mb-3': !employeeForm.controls['employee_eegistration'].invalid,
+                    'mb-2': employeeForm.controls['employee_eegistration'].invalid}"
+                    placeholder="Type your Employee Registration" 
+                    formControlName="employee_eegistration"
+                    #employee_eegistration />
+                <div *ngIf="employeeForm.controls['employee_eegistration'].invalid
+                    && (employeeForm.controls['employee_eegistration'].dirty
+                    || employeeForm.controls['employee_eegistration'].touched)" class="alert alert-danger mt-2  p-1 "
+                    role="alert">
+                    <div *ngIf="employeeForm.controls['employee_eegistration'].errors">
+                        The field 'Employee Registration' is required
+                    </div>
+
+                </div>
+            </div>
+            <!-- FIM BLOCO: Employee Registration -->
+
+            <div class="form-group">
+                <button
+                    (click)="updateEmployee(name.value, 
+                             job_role.value, 
+                             salary.value, 
+                             birth.value, 
+                             employee_eegistration.value)"
+                    type="submit" 
+                    class="btn-primary btn" 
+                    [disabled]="employeeForm.pristine || employeeForm.invalid"
+                >
+                    <fa-icon [icon]="['fas', 'edit']"></fa-icon> Employee
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
