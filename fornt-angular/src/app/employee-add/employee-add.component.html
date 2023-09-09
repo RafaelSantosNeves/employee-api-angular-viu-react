@@ -63,7 +63,7 @@
             <div class="form-group">
                 <label for="birth" class="">birth</label>
                 <input type="date" class="form-control" [ngClass]="{'mb-3': !employeeForm.controls['birth'].invalid, 
-                    'mb-2': employeeForm.controls['salary'].invalid}" placeholder="NN/DD/YYYY" formControlName="birth"
+                    'mb-2': employeeForm.controls['salary'].invalid}" placeholder="DD/MM/YYYY" formControlName="birth"
                     #birth />
                 <div *ngIf="employeeForm.controls['birth'].invalid
                     && (employeeForm.controls['birth'].dirty

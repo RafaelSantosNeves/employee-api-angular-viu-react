@@ -15,7 +15,7 @@ router.post('/employees', employeeController.createEmployee)
 router.get('/employees', employeeController.listAllEmployees)
 
 // ==> Rota rseponsável por listar um determinado 'Colaborador' por id: (GET): localhost:3000/api/employees?id
-router.get('/employees/:id', employeeController.findEmployeeById);
+router.get('/employee/:id', employeeController.findEmployeeById);
 
 // == Rota responsável por atualizar um determinado colaborador por id: (PUT): localhost:3000/api/employees
 router.put('/employees/:id', employeeController.updateEmployeeById)

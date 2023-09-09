@@ -38,23 +38,28 @@ exports.listAllEmployees = async (req, res) => {
 
 // ==> Método responsável por listar um determinado 'Employee' por id
 exports.findEmployeeById = async(req, res) =>{
-  const employeeId = req.params.id
-  const response = await db.query(`SELECT 
-                                    employee_id,
-                                    name, 
-                                    job_role, 
-                                    salary, 
-                                    employee_registration, 
-                                    to_char(birth, 'dd/MM/yyyy') as birth 
-                                  FROM employee  
-                                  WHERE employee_id = $1;`, [employeeId])
-  res.status(200).send(response.rows)
+  try{
+    const employeeId = req.params.id
+    const response = await db.query(`SELECT 
+                                      employee_id,
+                                      name, 
+                                      job_role, 
+                                      salary, 
+                                      employee_registration, 
+                                      to_char(birth, 'yyyy-MM-dd') as birth 
+                                    FROM employee  
+                                    WHERE employee_id = $1`, [employeeId])
+    res.status(200).send(response.rows)
+  } catch(error){
+    console.log(error)
+  }
 }
 
 // ==> Método responsável por atualizar determinado 'Employee' por id
 exports.updateEmployeeById = async(req, res) =>{
   const employeeId = req.params.id
-  const { employeeName: name, jobRole: job_role, salary: salary, birth: birth, employeeRegistration: employee_registration } = req.body
+  console.log('to indo',employeeId)
+  const { name, job_role, salary, birth, employee_registration } = req.body
   // eslint-disable-next-line no-unused-vars
   const response = await db.query(
     "UPDATE employee SET name = $1, job_role = $2, salary = $3, birth = $4, employee_registration = $5 WHERE employee_id = $6;",

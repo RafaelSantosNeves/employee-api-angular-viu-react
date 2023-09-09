@@ -35,9 +35,16 @@ export class EmployeeEditComponent {
 
   ngOnInit(){
     this.route.params.subscribe(params =>{
-      this.employeeService.editEmployee(params['id']).subscribe(res =>{
-        this.employee = res
-        console.log(params['id'])
+      this.employeeService.editEmployee(params['id']).subscribe((res: any) =>{
+        this.employee = res[0]
+        
+        this.employeeForm.setValue({
+          name: this.employee.name,
+          job_role: this.employee.job_role,
+          salary: this.employee.salary,
+          birth: this.employee.birth,
+          employee_registration: this.employee.employee_registration
+        })
       })
     })
   }

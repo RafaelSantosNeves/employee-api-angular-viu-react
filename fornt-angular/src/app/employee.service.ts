@@ -42,7 +42,7 @@ export class EmployeeService {
   }
 
   /* Método responsável por atualizar um determinado employee por id*/
-  editEmployee(id:any){
+  editEmployee(id: any){
     // => (PUT - url no Back-End): http://localhost:3000/api/employees/id
     return this.http.get(`${this.url}/employee/${id}`)
   }
