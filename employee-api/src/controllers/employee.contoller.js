@@ -49,7 +49,7 @@ exports.findEmployeeById = async(req, res) =>{
                                       to_char(birth, 'yyyy-MM-dd') as birth 
                                     FROM employee  
                                     WHERE employee_id = $1`, [employeeId])
-    res.status(200).send(response.rows)
+    res.status(200).send(response.rows[0])
   } catch(error){
     console.log(error)
   }

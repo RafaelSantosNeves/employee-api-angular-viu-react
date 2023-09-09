@@ -36,7 +36,7 @@ export class EmployeeEditComponent {
   ngOnInit(){
     this.route.params.subscribe(params =>{
       this.employeeService.editEmployee(params['id']).subscribe((res: any) =>{
-        this.employee = res[0]
+        this.employee = res
         
         this.employeeForm.setValue({
           name: this.employee.name,
