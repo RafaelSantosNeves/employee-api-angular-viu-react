@@ -4,7 +4,7 @@ descrição: arquivo responsável por realizar as transições de request entre 
 */
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHandler } from '@angular/common/http'
 import Employee from './Employee';
 /* import Employee from './Employee';
  */
@@ -43,7 +43,7 @@ export class EmployeeService {
 
   /* Método responsável por atualizar um determinado employee por id*/
   editEmployee(id: any){
-    // => (PUT - url no Back-End): http://localhost:3000/api/employees/id
+    // => (get - url no Back-End): http://localhost:3000/api/employees/id
     return this.http.get(`${this.url}/employee/${id}`)
   }
 
@@ -56,7 +56,16 @@ export class EmployeeService {
       birth, 
       employee_registration
     };
+    // => (PUT - url no Back-End): http://localhost:3000/api/employees/id
     this.http.put(`${this.url}/employees/${id}`, employee).subscribe(res => console.log('Done!'))
+  }
+
+  /**
+   * Método responsável por excluir um 'Employee' pelo id:
+   */
+  deleteEmployee(id: any) {
+    // ==> (DELETE - Url no Back-End): http://localhost:3000/api/employees/:id
+    return this.http.delete(`${this.url}/employees/${id}`);
   }
 
 }
